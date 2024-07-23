@@ -1,7 +1,5 @@
 import pag from '../src/services/project.js'
-import * as store from './helperTest/testStore.js'
 import * as help from './helperTest/helpPages(03).js'
-import {Page, Item} from '../src/db.js'
 
 /*Tests de las funciones correspondientes a Page e Item, tablas relacionadas 
 en las que se presenta el producto*/
