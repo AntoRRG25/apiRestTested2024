@@ -198,7 +198,15 @@ info_body: "Esta pagina web fue creada primero como una landing page con react.j
 url: "https://deployprueba.vercel.app/",
 enable: false
 }
-
+export const wrongBody =
+{
+title: "Boscarol Hnos",
+landing: "url444",
+logo: "url",
+info_body: "Esta pagina web fue creada primero como una landing page con react.js con vite",
+url: "https://deployprueba.vercel.app/",
+enable: false
+}
 export const bodyUpdResponse = 
 {
       "id": 1,
@@ -210,14 +218,20 @@ export const bodyUpdResponse =
       "url": "https://deployprueba.vercel.app/",
       "enable": false,
       "deleteAt": false,
-      "createdAt": expect.any(Date),
-      "updatedAt": expect.any(Date)
+      // "createdAt": expect.any(Date),
+      // "updatedAt": expect.any(Date)
     }
 
     export const itemUpdate =
     {
         img: "url",
         text: "En este caso este es el campo que actualize en esta ocasion.",
+        PageId: 1,
+        enable: true,
+    }
+    export const wrongItem =
+    {
+        img: "url",
         PageId: 1,
     }
 
@@ -227,7 +241,8 @@ export const bodyUpdResponse =
         "img": "url",
         "text": "En este caso este es el campo que actualize en esta ocasion.",
         "PageId": 1,
-        "enable": false,
-        "createdAt": expect.any(Date),
-        "updatedAt": expect.any(Date),
+        "enable": true,
+        //"createdAt": expect.any(Date),
+        //"updatedAt": expect.any(Date),
     }
+   

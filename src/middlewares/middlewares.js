@@ -121,6 +121,16 @@ updHome: (req, res, next)=>{
     
     next();
 },
+updItem : (req, res, next) => {
+    const newData = req.body;  //{img, text, id }
+    if (!newData || Object.keys(newData).length === 0) {return res.status(400).json({ error: 'Missing body' })}
+
+    // Puedes agregar validaciones adicionales para los campos esperados en newData
+    const requiredFields = ['img', 'text', 'enable'];
+    const missingFields = requiredFields.filter(field => !(field in newData));
+    if (missingFields.length > 0) {return res.status(400).json({ error: `Missing fields: ${missingFields.join(', ')}` })}
+    next()
+},
 catchAsync : (controller)=>{
     return (req, res, next)=>{
         return controller(req, res, next).catch(next);

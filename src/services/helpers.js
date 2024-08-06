@@ -26,6 +26,7 @@ const aux = (info, detailItem,)=>{
         img: info.img,
         text: trunc,
         pageId: info.PageId,
+        enable: info.enable
     }
 };
 function holderParser (info, isObj) { 

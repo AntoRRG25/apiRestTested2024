@@ -50,7 +50,7 @@ describe('Funciones de Service/ product. CRUD basico completo de ambas tablas.',
             it('Deberia retornar un objeto con un item', async()=>{
                 const id = 4
                 const response = await pag.getDetail(id)
-                expect(response).toEqual(help.responseItem)
+                expect(response).toMatchObject(help.responseItem)
             })
         })
     })

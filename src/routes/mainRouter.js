@@ -14,7 +14,7 @@ mainRouter.get("/project", ctr.getProjectHand);
 mainRouter.get("/project/:id", mid.protectParam, ctr.getProjectById);
 mainRouter.get("/project/item/:id", mid.protectParam, ctr.getItemById);
 mainRouter.put("/project/:id", mid.updHome, ctr.updController);
-mainRouter.patch("/project/:id", mid.createItem, ctr.detailUpdController);
+mainRouter.patch("/project/:id", mid.updItem, ctr.detailUpdController);
 mainRouter.delete("/project/:id", mid.protectParam, ctr.delController);
 //--------------------------------------------------------------------------
 mainRouter.post("/user/create", mid.createHolderMidd, ctr.createUserCtr);
