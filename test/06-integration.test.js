@@ -2,6 +2,7 @@ import session from 'supertest'
 import app from '../src/server.js'
 const agent = session(app);
 import * as help from './helperTest/IntegrationTest(06).js'
+import * as page from './helperTest/helpPages(03).js'
 import * as store from './helperTest/testStore.js';
 
 
@@ -159,6 +160,33 @@ describe('Test de rutas Usuario, Project.', ()=>{
                 expect(response.body).toEqual({error: 'Token invalido'})
             })
         })
-        describe('Test de rutas Project: "/api/project": ', ()=>{})
+    })
+    describe('Test de rutas Project: "/api/project": CRUD basico completo', ()=>{
+        describe('Rutas "/project/create", "/project/create/item", Creacion de proyecto e item.', ()=>{
+            it('Deberia crear un proyecto con algunos items (más de uno)', async()=>{   
+                const response = await agent
+                .post('/api/project/create')
+                .send(page.bodyPage)
+                .expect('Content-Type', /json/)
+                .expect(201);
+                expect(response.body).toMatchObject(page.responsePage)
+            })
+            it('Ruta "/project/item/create". Deberia crear un item individualmente', async()=>{
+                const id = 1; //El id de page para relacionar
+                const img = "url";
+                const text = "Texto de prueba"
+                const response = await agent
+                .post('/api/project/item/create')
+                .send({id, img, text})
+                .expect('Content-Type', /json/)
+                .expect(201);
+                expect(response.body).toBe("Item creado exitosamente")
+            })
+        })
+        describe('Rutas "project/:id", "/`project/item/:id". Metodo PUT actualizacion de proyecto e item', ()=>{
+            it('Deberia actualizar el proyecto', ()=>{
+                
+            })
+        })
     })
 })
