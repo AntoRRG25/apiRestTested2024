@@ -14,7 +14,7 @@ describe('Tests de middlewares',()=>{
     // })
     describe('Funciones "generateToken" y "verifyToken" (jsonwebtoken) ', ()=>{
         it('Deberia permitir el paso si está presente el token', async()=>{
-            const user = { id: 556, email: 'josenomeacuerdo@nose.com', role: 'user'}
+            const user = { id: 556, email: 'josenomeacuerdo@nose.com', role: 1}
             const token = midd.generateToken(user)
             store.setToken(token) 
             const response = await agent
@@ -26,7 +26,7 @@ describe('Tests de middlewares',()=>{
              expect(response.body).toEqual({ message: 'Passed middleware' })       
         })
         it('Deberia negar el paso si no está presente el token o este no es valido', async()=>{
-            const user = { id: 556, email: 'josenomeacuerdo@nose.com', role: 'user'}
+            const user = { id: 556, email: 'josenomeacuerdo@nose.com', role: 1}
             const response = await agent
              .post('/test/user')
              .send({user})
@@ -37,7 +37,7 @@ describe('Tests de middlewares',()=>{
         })
         it('Deberia decodificar el id y el role del usuario en un objeto: "req.UserInfo"', async()=>{
             const token = store.getToken()
-            const compare = { userId: 556, userRole: 'user'}
+            const compare = { userId: 556, userRole: 1}
             const response = await agent
              .get('/test/user')
              .set('Authorization', `Bearer ${token}`)
