@@ -19,4 +19,4 @@ Para el test se implementó:
 - supertest
 - babel (solo para test)
 
-- Nota: Este fue el primer proyecto en el cual implemente testing a través de Jest incluyendo las funciones de servicio (anteriormente solo rutas y funciones sencillas) este servidor fue creado en 2024
+- Nota: Este fue el primer proyecto en el cual implemente testing a través de Jest incluyendo las funciones de servicio (anteriormente solo rutas y funciones sencillas) este servidor fue creado en julio 2024 y actualizado por ultima vez el 15 de Agosto de 2024
